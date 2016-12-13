@@ -26,9 +26,12 @@
                            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
                            http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
 
-  <aop:aspecJ-autoproxy proxy-target-class="true" />
-  <context:anotation-config />
+  <aop:aspectj-autoproxy proxy-target-class="true" />
+  
+  <context:annotation-config/>
   
   <context:component-scan base-package="com.mycompany.packtprimeuidemo" />
-  
+  <!-- <mongo:repositories base-package="com.mycompany.packprimeuidemo.dao">
+      <mongo:repository id="personDao" />
+  </mongo:repositories> -->
 </beans>
