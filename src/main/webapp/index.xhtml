@@ -28,18 +28,19 @@
                         <p:outputLabel for="surname" value="Surname" />
                         <p:inputText id="surname" value="#{personSearchBean.surname}" />
                         
-                        <p:commandButton value="Search" action="#{personSearchBean.test()}" />
+                        <p:commandButton value="Search" action="#{personSearchBean.search()}" 
+                                         update=":personListForm:personListTable" />
                     
                 </p:panelGrid>                
                 </h:form>
                 
-                <h:form>
-                    <p:dataTable>
+                <h:form id="personListForm">
+                    <p:dataTable id="personListTable" value="#{personSearchBean.personList}" var="person">
                         <p:column headerText="Firstname">
-                            <p:outputLabel  />
+                            <p:outputLabel value="#{person.firstname}" />
                         </p:column>
                         <p:column headerText="Surname">
-                            <p:outputLabel  />
+                            <p:outputLabel value="#{person.surname}" />
                         </p:column>
                     </p:dataTable>
                 </h:form>

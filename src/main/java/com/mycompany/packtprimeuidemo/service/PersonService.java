@@ -8,6 +8,7 @@ package com.mycompany.packtprimeuidemo.service;
 import com.mycompany.packtprimeuidemo.dao.PersonDao;
 import com.mycompany.packtprimeuidemo.model.Person;
 import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonService implements java.io.Serializable{
     
+    @Resource
     private PersonDao personDao;
     
     public Person findById(String id){
