@@ -19,7 +19,30 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
-               
+                <h:form>
+                <p:panelGrid columns="4">
+                    
+                        <p:outputLabel for="firstName" value="Firstname" />
+                        <p:inputText id="firstName" value="#{personSearchBean.firstname}" />
+                        
+                        <p:outputLabel for="surname" value="Surname" />
+                        <p:inputText id="surname" value="#{personSearchBean.surname}" />
+                        
+                        <p:commandButton value="Search" action="#{personSearchBean.test()}" />
+                    
+                </p:panelGrid>                
+                </h:form>
+                
+                <h:form>
+                    <p:dataTable>
+                        <p:column headerText="Firstname">
+                            <p:outputLabel  />
+                        </p:column>
+                        <p:column headerText="Surname">
+                            <p:outputLabel  />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
             </p:layoutUnit>
 
         </p:layout>
