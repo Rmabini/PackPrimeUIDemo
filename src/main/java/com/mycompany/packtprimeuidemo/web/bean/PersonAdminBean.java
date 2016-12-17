@@ -102,18 +102,18 @@ public class PersonAdminBean {
         return "index.jsf?faces-redirect=true";
 
     }
-    
-    public String editPerson(Person person){
-     this.selectedPerson = person;
-     save(this.selectedPerson);
-     return "index.jsf?faces-redirect=true";
-    
+
+    public String editPerson() {
+        this.selectedPerson.setFirstname(firstname);
+        this.selectedPerson.setSurname(surname);
+        save(this.selectedPerson);
+        return "index.jsf?faces-redirect=true";
+
     }
-    
-    public String deletePerson(Person person){
-     this.selectedPerson = person;
-     personService.remove(this.selectedPerson);
-     return "index.jsf?faces-redirect=true";
-    
+
+    public String deletePerson() {
+        personService.remove(this.selectedPerson);
+        return "index.jsf?faces-redirect=true";
+
     }
 }
