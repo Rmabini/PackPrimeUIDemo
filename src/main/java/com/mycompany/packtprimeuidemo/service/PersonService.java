@@ -44,6 +44,10 @@ public class PersonService implements java.io.Serializable{
     public List<Person> findAll() {
         return personDao.findAll();
     }
+
+    public void remove(Person selectedPerson) {
+        this.personDao.delete(selectedPerson);
+    }
     
     
     
