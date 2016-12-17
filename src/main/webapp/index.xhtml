@@ -1,52 +1,36 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="100" resizable="false" closable="false"
-                          collapsible="false">
-                <p:outputLabel value="Header" ></p:outputLabel>
-            </p:layoutUnit>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:h="http://xmlns.jcp.org/jsf/html"
+              xmlns:p="http://primefaces.org/ui"
+              xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+              template="/templates/masterLayout.xhtml">
 
-            <p:layoutUnit position="south" size="100" resizable="false" closable="false"
-                          collapsible="false">
-                <p:outputLabel value="footer" ></p:outputLabel>
-            </p:layoutUnit>
+    <ui:define name="content">
+        <h:form>
+            <p:panelGrid columns="4">
 
-            <p:layoutUnit position="center">
-                <h:form>
-                <p:panelGrid columns="4">
-                    
-                        <p:outputLabel for="firstName" value="Firstname" />
-                        <p:inputText id="firstName" value="#{personSearchBean.firstname}" />
-                        
-                        <p:outputLabel for="surname" value="Surname" />
-                        <p:inputText id="surname" value="#{personSearchBean.surname}" />
-                        
-                        <p:commandButton value="Search" action="#{personSearchBean.search()}" 
-                                         update=":personListForm:personListTable" />
-                    
-                </p:panelGrid>                
-                </h:form>
-                
-                <h:form id="personListForm">
-                    <p:dataTable id="personListTable" value="#{personSearchBean.personList}" var="person">
-                        <p:column headerText="Firstname">
-                            <p:outputLabel value="#{person.firstname}" />
-                        </p:column>
-                        <p:column headerText="Surname">
-                            <p:outputLabel value="#{person.surname}" />
-                        </p:column>
-                    </p:dataTable>
-                </h:form>
-            </p:layoutUnit>
+                <p:outputLabel for="firstName" value="Firstname" />
+                <p:inputText id="firstName" value="#{personSearchBean.firstname}" />
 
-        </p:layout>
-    </h:body>
-</html>
+                <p:outputLabel for="surname" value="Surname" />
+                <p:inputText id="surname" value="#{personSearchBean.surname}" />
 
+                <p:commandButton value="Search" action="#{personSearchBean.search()}" 
+                                 update=":personListForm:personListTable" />
+
+            </p:panelGrid>                
+        </h:form>
+
+        <h:form id="personListForm">
+            <p:dataTable id="personListTable" value="#{personSearchBean.personList}" var="person">
+                <p:column headerText="Firstname">
+                    <p:outputLabel value="#{person.firstname}" />
+                </p:column>
+                <p:column headerText="Surname">
+                    <p:outputLabel value="#{person.surname}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
