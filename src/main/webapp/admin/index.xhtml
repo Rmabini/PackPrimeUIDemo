@@ -1,36 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <p:layout fullPage="true">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/masterLayout.xhtml">
 
-            <p:layoutUnit position="center">
-                <h:form id="personListForm">
-                    <p:dataTable id="personListTable" value="#{personAdminBean.findAll()}" var="person">
-                        <p:column headerText="Firstname">
-                            <p:outputLabel value="#{person.firstname}" />
-                        </p:column>
-                        <p:column headerText="Surname">
-                            <p:outputLabel value="#{person.surname}" />
-                        </p:column>
-                        <p:column headerText="Action">
-                            <p:commandButton value="edit" action="#{personAdminBean.displayEditPerson(person)}" 
-                                             />
-                            <p:commandButton value="delete" action="#{personAdminBean.displayDeletePerson(person)}" 
-                                             />
-                        </p:column>
-                    </p:dataTable>
-                    <p:commandButton value="add" action="#{personAdminBean.displayAddPerson()}"
+    <ui:define name="content">
+        <h:form id="personListForm">
+            <p:dataTable id="personListTable" value="#{personAdminBean.findAll()}" var="person">
+                <p:column headerText="Firstname">
+                    <p:outputLabel value="#{person.firstname}" />
+                </p:column>
+                <p:column headerText="Surname">
+                    <p:outputLabel value="#{person.surname}" />
+                </p:column>
+                <p:column headerText="Action">
+                    <p:commandButton value="edit" action="#{personAdminBean.displayEditPerson(person)}" 
                                      />
-                </h:form>
-            </p:layoutUnit>
-
-        </p:layout>
-    </h:body>
-</html>
-
+                    <p:commandButton value="delete" action="#{personAdminBean.displayDeletePerson(person)}" 
+                                     />
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="add" action="#{personAdminBean.displayAddPerson()}"
+                             />
+        </h:form>
+    </ui:define>
+</ui:composition>
